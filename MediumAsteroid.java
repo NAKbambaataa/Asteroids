@@ -1,16 +1,21 @@
 package com.Asteroids.main;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
+import java.util.Random;
 
-public class Player extends GameObject
+public class MediumAsteroid extends GameObject
 {
+    Random r = new Random();
 
-    public Player(int x, int y, ID id)
+    int velX = 1;
+    int velY = 1;
+    int changeVel = r.nextInt();
+
+    public MediumAsteroid(int x, int y, ID id)
     {
         super(x, y, id);
 
-    }//end Player constructor
+    }//end SmallAsteroid constructor
 
     public void tick()
     {
@@ -41,9 +46,9 @@ public class Player extends GameObject
 
     public void render(Graphics g)
     {
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLUE);
         g.fillRect(x, y, 16, 16);
 
     }//end render
 
-}//end class Player
+}//end class SmallAsteroid

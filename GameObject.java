@@ -1,6 +1,6 @@
 package com.Asteroids.main;
 
-import java.awt.*;
+import java.awt.Graphics;
 
 public abstract class GameObject
 {
@@ -38,7 +38,7 @@ public abstract class GameObject
         this.velX = velX;
     }//end setVelX
 
-    public void setVely(int velY)
+    public void setVelY(int velY)
     {
         this.velY = velY;
     }//end setVelY
@@ -58,7 +58,7 @@ public abstract class GameObject
         return velX;
     }
 
-    public int getVely()
+    public float getVely()
     {
         return velY;
     }

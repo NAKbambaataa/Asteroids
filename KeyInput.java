@@ -25,22 +25,27 @@ public class KeyInput extends KeyAdapter
             {
                 if(key == KeyEvent.VK_W)
                 {
-                    tempObject.setVely(-3);
+                    tempObject.setVelY(-2);
                 }//end if
 
                 if(key == KeyEvent.VK_S)
                 {
-                    tempObject.setVely(3);
+                    tempObject.setVelY(2);
                 }//end if
 
                 if(key == KeyEvent.VK_D)
                 {
-                    tempObject.setVelX(3);
+                    tempObject.setVelX(2);
                 }//end if
 
                 if(key == KeyEvent.VK_A)
                 {
-                    tempObject.setVelX(-3);
+                    tempObject.setVelX(-2);
+                }//end if
+
+                if(key == KeyEvent.VK_ESCAPE)
+                {
+                    System.exit(1);
                 }//end if
 
             }//end if
@@ -61,12 +66,12 @@ public class KeyInput extends KeyAdapter
             {
                 if(key == KeyEvent.VK_W)
                 {
-                    tempObject.setVely(-1);
+                    tempObject.setVelY(-1);
                 }//end if
 
                 if(key == KeyEvent.VK_S)
                 {
-                    tempObject.setVely(1);
+                    tempObject.setVelY(1);
                 }//end if
 
                 if(key == KeyEvent.VK_D)

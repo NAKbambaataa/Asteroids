@@ -15,6 +15,7 @@ public class Game extends Canvas implements Runnable
     private boolean running = false;
     private Random r;
     private Handler handler;
+    private HUD hud;
 
     public static void main(String args[])
     {
@@ -29,9 +30,30 @@ public class Game extends Canvas implements Runnable
         this.addKeyListener(new KeyInput(handler));
 
         new Window(WIDTH, HEIGHT, "Asteroids", this);
+
+        hud = new HUD();
+
         r = new Random();
 
-        handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Player));
+        handler.addObject(new Player(WIDTH/2 - 16, HEIGHT/2 - 16, ID.Player));
+
+        for (int i = 0; i < r.nextInt(8) + 1; i++)
+        {
+            handler.addObject(new SmallAsteroid(r.nextInt(WIDTH - 1) + 1, r.nextInt(HEIGHT - 1) + 1, ID.SmallAsteroid));
+
+        }//end for
+
+        for (int i = 0; i < r.nextInt(5) + 1; i++)
+        {
+            handler.addObject(new MediumAsteroid(r.nextInt(WIDTH - 1) + 1, r.nextInt(HEIGHT - 1) + 1, ID.MediumAsteroid));
+
+        }//end for
+
+        for (int i = 0; i < r.nextInt(3) + 1; i++)
+        {
+            handler.addObject(new LargeAsteroid(r.nextInt(WIDTH - 1) + 1, r.nextInt(HEIGHT - 1) + 1, ID.LargeAsteroid));
+
+        }//end for
 
     }//end Game constructor
 
@@ -102,6 +124,7 @@ public class Game extends Canvas implements Runnable
     private void tick()
     {
         handler.tick();
+        hud.tick();
 
     }//end tick
 
@@ -121,10 +144,25 @@ public class Game extends Canvas implements Runnable
         g.fillRect(0,0, WIDTH, HEIGHT);
 
         handler.render(g);
+        hud.render(g);
 
         g.dispose();
         bs.show();
 
     }//end render
+
+    public static int clamp (int var, int min, int max)
+    {
+        if (var >= max)
+        {
+            return var = max;
+        }else if (var <= min)
+        {
+            return var = min;
+        }//end if
+
+        return var;
+
+    }//end clamp
 
 }//end Class Game
